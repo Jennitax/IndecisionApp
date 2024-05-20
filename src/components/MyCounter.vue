@@ -11,21 +11,29 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue';
-
-//En JS<
-// const props = defineProps({
-//   value: { type: Number, required: true },
-// });
+import { useCounter } from '@/composables/useCounter';
 
 interface Props {
   value: number;
 }
-
 const props = defineProps<Props>();
+const { counter, squareCounter } = useCounter(10);
 
-const counter = ref(props.value);
-const squareCounter = computed(() => counter.value * counter.value);
+// import { ref, computed } from 'vue';
+
+// //En JS<
+// // const props = defineProps({
+// //   value: { type: Number, required: true },
+// // });
+
+// interface Props {
+//   value: number;
+// }
+
+// const props = defineProps<Props>();
+
+// const counter = ref(props.value);
+// const squareCounter = computed(() => counter.value * counter.value);
 </script>
 
 <style scoped>
